@@ -23,10 +23,6 @@ def inner(a, b):
 
 # A deve ser simétrica e diagonal dominante
 
-# A = np.array([[4, -1, 1],
-#               [-1, 4.25, 2.75],
-#               [1, 2.75, 3.5]])
-
 A = np.array([[6, 2, 1, -2],
               [2, 8, -1, -1],
               [1, -1, 5, 1],
