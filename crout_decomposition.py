@@ -1,5 +1,4 @@
 import numpy as np
-from scipy import linalg as np_linalg
 
 def check_symmetric(A, rtol=1e-05, atol=1e-08):
     is_symmetric = np.allclose(A, A.T, rtol=rtol, atol=atol)
@@ -8,27 +7,12 @@ def check_symmetric(A, rtol=1e-05, atol=1e-08):
         print("A is not symmetric")
         quit()
 
-def check_diagonally_dominant(X):
-    D = np.diag(np.abs(X)) # Find diagonal coefficients
-    print(D)
-    S = np.sum(np.abs(X), axis=1) - D # Find row sum without diagonal
-    is_dd = np.all(D>S)
-
-    if (not is_dd):
-        print("A is not diagonally dominant")
-        quit()
-
-def inner(a, b):
-    return a.T @ b
-
-# A deve ser simétrica e diagonal dominante
+# A deve ser simétrica
 
 A = np.array([[6, 2, 1, -2],
               [2, 8, -1, -1],
               [1, -1, 5, 1],
               [-2, -1, 1, 6]])
-
-# check_diagonally_dominant(A)
 
 check_symmetric(A)
 
