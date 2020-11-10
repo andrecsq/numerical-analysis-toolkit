@@ -40,6 +40,7 @@ for it in range(max_iter):
                 s += A[i,j]*x_new[j]
             else:
                 s += A[i,j]*x[j]
+        print(f"x[{it},{i}] = (b[{i}]({b[i]}) - s({s}))/A[{i},{i}]({A[i,i]})")
         x_new[i] = (b[i] - s)/A[i,i]
     old_x = copy.deepcopy(x)
     x = np.array(x_new)
