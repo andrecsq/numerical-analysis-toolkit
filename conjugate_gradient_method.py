@@ -22,10 +22,10 @@ def infnorm(A):
 
 # A deve ser simétrica e definida positiva
 
-A = np.array([[8, 1, 1],
-              [1, 6, -1],
-              [1, -1, 4]])
-b = np.array([[2, 3, -4]]).T
+A = np.array([[4, -1, 0],
+              [-1, 4, -1.0],
+              [0, -1, 4]])
+b = np.array([[1, 0, 4]]).T
 
 check_symmetric(A)
 
@@ -37,8 +37,8 @@ alpha = []
 beta = []
 v = []
 k = 0
-eps = 0.1
-max_iter = 50
+eps = 0.0001
+max_iter = 2
 
 print("A: ")
 print(A)

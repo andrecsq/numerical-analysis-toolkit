@@ -44,13 +44,14 @@ while True:
     print(f"r[{k}] =")
     print(r[k])
 
+    # print(f"<r^k,r^k>={inner(r[k], r[k])}")
+    # print(f"<r^k,Ar^k>={inner(r[k], A @ r[k])}")    
     a.append(float(inner(r[k], r[k]) / inner(r[k], A @ r[k])))
     print(f"a[{k}] =")
     print(a[k])
 
     x.append(x[k] + a[k]*r[k])
     print(x[k+1])
-
 
     if infnorm(x[k+1] - x[k]) < eps or k > max_iter:
         print("solution:")
