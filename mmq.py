@@ -1,10 +1,10 @@
 import numpy as np
 
-x = np.array([1.,2.,3.,4.,5.,6.,7.,8.,9.,10.])
-y = np.array([1.3, 3.5, 4.2, 5., 7., 8.8, 10.1, 12.5, 13, 15.6])
-w = np.array([1.,1.,1.,1.,1.,1.,1.,1.,1.,1.])
+x = np.array([0.,1.3,1.5,2.])
+y = np.array([0, .7, 1, 1.5])
+w = np.array([2.,2.,2.,1.])
 
-order = 2
+order = 3
 m = x.size
 
 print("quant points = ", m)
@@ -33,4 +33,4 @@ print("b =", b)
 
 x = np.linalg.solve(A, b)
 
-print(x)
+print("alpha=", x)

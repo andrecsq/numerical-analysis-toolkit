@@ -11,8 +11,8 @@ eps = .001
 num_equations = 2
 x = [sp.Symbol(f"x_{i}") for i in range(num_equations)]
 
-f0 = x[0]**2 + x[1]**2 - 4
-f1 = x[0] - x[1]**2
+f0 = x[0]**2 + x[0]*x[1]**2 + 1
+f1 = x[0]*x[1] + x[1]**2 - 2
 print(f"f0 = {f0}")
 print(f"f1 = {f1}")
 

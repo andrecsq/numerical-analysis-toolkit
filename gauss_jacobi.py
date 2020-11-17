@@ -2,15 +2,15 @@ import numpy as np
 import copy
 
 precison_low = True
-gauss_seidel = True
+gauss_seidel = False
 
 if precison_low:
     np.set_printoptions(precision=7, suppress=True)
 
-A = np.array([[10., -1., 1.],
-              [-1., 4., -1],
-              [2., -1., 5.]])
-b = np.array([[11., -2., 7.]]).T
+A = np.array([[9., -1., 0.],
+              [-1., 4., 1.],
+              [0., 1., 6.]])
+b = np.array([[1., 0., 2.]]).T
 
 x = np.array([[0., 0., 0.]]).T
 

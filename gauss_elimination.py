@@ -14,11 +14,16 @@ def pivot(i):
     Ab[[i, pivot_row_index]] = Ab[[pivot_row_index, i]]   
     
 
-A = np.array([[.02, .01, 0., 0.],
-              [1., 2., 1., 0.],
-              [0., 1., 2., 1.],
-              [0., 0., 100., 200.]])
-b = np.array([[0.02, 1, 4, 800]]).T
+# A = np.array([[.02, .01, 0., 0.],
+#               [1., 2., 1., 0.],
+#               [0., 1., 2., 1.],
+#               [0., 0., 100., 200.]])
+# b = np.array([[0.02, 1, 4, 800]]).T
+
+A = np.array([[7, 7.6, 11.88],
+              [7.6, 11.88, 19.144],
+              [11.88, 19.144, 31.837]])
+b = np.array([[4.9, 7.82, 12.866]]).T
 
 pivot_enabled = True
 precison_low = True
@@ -57,10 +62,16 @@ x = [0]*n
 for i in reversed(range(n)):
     s = np.inner(Ab[i, 0:n], x)
     x[i] = (Ab[i, n] - s)/Ab[i][i]
-    print(f"x[{i}] = (Ab[{i},{n}]({Ab[i, n]}) - sum(a_{i}j,x_j)({s}))/A[{i},{i}]({A[i,i]}) = {x[i]}")
+    print(f"x[{i}] = (Ab[{i},{n}]({Ab[i, n]}) - sum(a_{i}j,x_j)({s}))/A[{i},{i}]({Ab[i,i]}) = {x[i]}")
     #x = Ab[i, n] - Ab[i,0:n-2]
   
 print("\nx: ")  
 print(x)
+
+f = x[0] + x[1]*2.5 + x[2]*2.5**2 
+
+print(f)
     
-    
+# For anybody else confused about the notation a[[0, 2]] is shorthand for a[[0, 2], :] 
+# so this selects the submatrix consisting of all of rows 0 and 2. To interchange columns, 
+# you would use a[:, [0, 2]] = a[:, [2, 0]].

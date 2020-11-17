@@ -1,10 +1,11 @@
 import sympy as sp
 import numpy as np
 
-p = np.array([1,3])
-f = np.array([5,6])
-df = np.array([1,2])
+p = np.array([2.,3.])
+f = np.array([0.39,0.18])
+df = np.array([0.4,0.1])
 h1 = p[1]-p[0]
+eval_at = 2.5
 
 print("p: ", p)
 print("f: ", f)
@@ -45,9 +46,14 @@ for i in range(len(phi)):
     
 h = f[0]*phi[0] + f[1]*phi[1] + df[0]*psi[0] + df[1]*psi[1]
 print("h(x) = ", h)
+print(f"h({eval_at}) = ", h.subs({x: eval_at}).evalf())
 
-evalat = 2
-print(f"h({evalat}) = ", h.subs({x: evalat}).evalf())
+print()
+
+h_dx = sp.diff(h, x)
+print("h'(x) = ", h_dx)
+h_dx = sp.diff(h, x)
+print(f"h\'({eval_at}) = ", h_dx.subs({x: eval_at}).evalf())
 
 # print()
 # print("phi_1: ", phi_1)

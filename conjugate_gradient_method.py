@@ -22,10 +22,10 @@ def infnorm(A):
 
 # A deve ser simétrica e definida positiva
 
-A = np.array([[4, -1, 0],
-              [-1, 4, -1.0],
-              [0, -1, 4]])
-b = np.array([[1, 0, 4]]).T
+A = np.array([[9., -1., 0.],
+              [-1., 4., 1.],
+              [0., 1., 6.]])
+b = np.array([[1., 0., 2.]]).T
 
 check_symmetric(A)
 
@@ -42,46 +42,42 @@ max_iter = 2
 
 print("A: ")
 print(A)
-print("b: ")
-print(b)
+print("b: ", b.T)
 
-print("Aprox inicial: x[0] = b")
+print("\nx_0 = b = ", x[0].T)
 
 r.append(b - (A @ x[k]))
 v.append(b - (A @ x[k]))
-print(f"r[{k}] = v[{k}] =")
-print(r[k])
+print(f"r_{k} = v_{k} = ", r[k].T)
 
 while True:
+    print(f"\niter #{k}: ")
 
     alpha.append(float(inner(r[k], v[k]) / inner(v[k], A @ v[k])))
-    print(f"alpha[{k}] =")
-    print(alpha[k])
+    print(f"α_{k} = <r_{k},v_{k}>/<v_{k},A*v_{k}> = ", alpha[k])
+    print(f"α_{k} = ({float(inner(r[k], v[k]))})/({inner(v[k], A @ v[k])}) = ", alpha[k])
 
     x.append(x[k] + alpha[k]*v[k])
-    print(f"x[{k+1}] =")
-    print(x[k+1])
+    print(f"x_{k+1} = x_{k} + α_{k}*v_{k} = ", x[k+1].T)
+
 
     r.append(r[k] - alpha[k]*(A @ v[k]))
-    print(f"r[{k+1}] =")
-    print(r[k+1])
+    print(f"r_{k+1} = r_{k} - α_{k}*(A*v_{k}) = ", r[k+1].T)
 
-    if infnorm(r[k+1]) < eps:
-        print(f"Solution found on iteration #{k+1} (1-indexed):")
-        print(x[k+1])
+    err = infnorm(r[k+1])
+    print(f'err[{k+1}] = ', err)
+    if err < eps:
+        print(f"Solution found on iteration #{k+1} (1-indexed): ", x[k+1].T)
         break
 
     beta.append(float(inner(r[k+1], A @ v[k]) / inner(v[k], A @ v[k])))
-    print(f"beta[{k}] =")
-    print(beta[k])
+    print(f"β_{k} = <r_{k+1},A*v_{k}>/<v_{k},A*v_{k}> = ",beta[k])
+    print(f"β_{k} = ({inner(r[k+1], A @ v[k])})/({inner(v[k], A @ v[k])}) = ",beta[k])
 
     v.append(r[k+1] - beta[k]*v[k])
-    print(f"v[{k+1}] =")
-    print(v[k+1])
+    print(f"v_{k+1} = r_{k+1} - β_{k}*v_{k} = ", v[k+1].T)
 
     if k + 1 > max_iter:
-        print("Solution after {max_iter} iterations:")
-        print(x[k+1])
+        print(f"Max iterations reached ({max_iter}): ", x[k+1].T)
         break
-
     k += 1
