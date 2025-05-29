@@ -1,4 +1,4 @@
 # numerical-methods
-Implementações de Algoritmos de Métodos Numéricos em Python.
+Numerical Methods Algorithms in Python.
 
-Esses Algoritmos foram extraídos da disciplina de Métodos Numéricos da UFRJ, ministrada pelo professor Rincon.
+These algorithms were part of the Numerical Method discipline in Federal University of Rio de Janeiro (UFRJ).
