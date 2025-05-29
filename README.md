@@ -1,4 +1,4 @@
-# Numerical Methods Algorithms
+# Numerical Analysis Toolkit
 
 This repository contains implementations of various numerical methods algorithms in Python, developed as part of the Numerical Methods discipline at the Federal University of Rio de Janeiro (UFRJ).
 
